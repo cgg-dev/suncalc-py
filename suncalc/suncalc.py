@@ -68,7 +68,6 @@ def to_milliseconds(date):
 
     # Pandas series of Pandas datetime objects
     if pd and pd.api.types.is_datetime64_any_dtype(date):
-        # A datetime-like series coerce to int is (always?) in nanoseconds
         return date.dt.as_unit('ns').astype('int64') / 10 ** 6
 
     # Single pandas Timestamp
